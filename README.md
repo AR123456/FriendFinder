@@ -1,2 +1,2 @@
 # FriendFinder
- Express JS Friend Finder App 
+ Express Node JS Friend Finder App 
