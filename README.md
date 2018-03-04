@@ -1,2 +1,2 @@
 # FriendFinder
-Full Stack Express JS Friend Finder App 
+ Express JS Friend Finder App 
