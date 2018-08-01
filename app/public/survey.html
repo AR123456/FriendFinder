@@ -1,29 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Friend Finder App </title>
-
-      <!-- This bootstrap style   -->
+    <!-- This bootstrap style   -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-           <!-- Link in jQuery and Bootstrap JS  -->
+    <!-- Link in jQuery and Bootstrap JS  -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    </head>
+</head>
+
 <body>
     <div class="container">
         <!-- Quiz Page Title -->
         <div class="page-header">
             <h1 style="font-size: 45px;"> Friend Finder Quiz</h1>
-        </div> 
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">
-                        <strong>About You</strong>
-                    </h3>
-                </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    <strong>About You</strong>
+                </h3>
+            </div>
             <div class="panel-body">
                 <h4>Your Full Name</h4>
                 <div class="input-group">
@@ -51,7 +52,7 @@
                     <strong>Question 1</strong>
                 </h4>
                 <h5>Would you rather fight 100 duck sized horses or 1 horse sized duck?</h5>
-                <select data-placeholder="" class="chosen-select" id="Q1" >
+                <select data-placeholder="" class="chosen-select" id="Q1">
                     <option value=""></option>
                     <option value="1">1 (Strongly Duck)</option>
                     <option value="2">2</option>
@@ -102,7 +103,8 @@
                 <h4>
                     <strong>Question 5</strong>
                 </h4>
-                <h5>You're in a crowded room, would you rather fart loudly and everyone laughs at you or be the only one laughing obnoxiously when someone else farts?</h5>
+                <h5>You're in a crowded room, would you rather fart loudly and everyone laughs at you or be the only one laughing
+                    obnoxiously when someone else farts?</h5>
                 <select data-placeholder="" class="chosen-select" id="Q5">
                     <option value=""></option>
                     <option value="1">1 (Strongly Farter)</option>
@@ -115,7 +117,8 @@
                 <h4>
                     <strong>Question 6</strong>
                 </h4>
-                <h5>Would you rather be able to speak fluently every language in the world or be the best in the world at something of your choosing?</h5>
+                <h5>Would you rather be able to speak fluently every language in the world or be the best in the world at something
+                    of your choosing?</h5>
                 <select data-placeholder="" class="chosen-select" id="Q6">
                     <option value=""></option>
                     <option value="1">1 (Strongly Fluent)</option>
@@ -183,68 +186,67 @@
             <h4>
                 <span class="glyphicon glyphicon-send"></span> Submit</h4>
         </button>
-        <br>
-        <!-- TODO add link to Git Hub  -->
+        <br> >
         <!-- Footer -->
         <footer class="footer">
             <p>
                 <a href="/api/friends">API Friends List</a> |
-                <a href="github" target="_blank">GitHub Repo</a> |
+                <a href="https://github.com/AR123456" target="_blank">GitHub Repo</a> |
                 <a href="/">Home</a>
             </p>
         </footer>
         <!-- Friend found bootstrap Modal -->
-       	
-	<div id="resultsModal" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-  
-          <!-- Modal content-->
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal">&times;</button>
-              <h2 class="modal-title">Best Match</h2>
+
+        <div id="resultsModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h2 class="modal-title">Best Match</h2>
+                    </div>
+                    <div class="modal-body">
+                        <h2 id="matchName"></h2>
+                        <img id="matchImg" src="" alt="">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
             </div>
-            <div class="modal-body">
-              <h2 id="matchName"></h2>
-              <img id="matchImg" src="" alt="">
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-          </div>
-  
         </div>
-      </div>
     </div>
     <!-- Link in jQuery and Bootstrap -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!-- JavaScript for Submission Logic -->
     <script>
         //on click event to handel the submit button 
-  $('#submit').on('click', function() {
-    //   console.log('You are in the on click function');
-          
-      var newFriend = {
-        name: $('#formName').val().trim(),
-        profilePic: $('#formImage').val().trim(),
-        answers: [
-          $('#Q1').val(),
-          $('#Q2').val(),
-          $('#Q3').val(),
-          $('#Q4').val(),
-          $('#Q5').val(),
-          $('#Q6').val(),
-          $('#Q7').val(),
-          $('#Q8').val(),
-          $('#Q9').val(),
-          $('#Q10').val()
-        ]
-      }
-    //   console.log("newFriend: "+newFriend);
-      
+        $('#submit').on('click', function () {
+            //   console.log('You are in the on click function');
+
+            var newFriend = {
+                name: $('#formName').val().trim(),
+                profilePic: $('#formImage').val().trim(),
+                answers: [
+                    $('#Q1').val(),
+                    $('#Q2').val(),
+                    $('#Q3').val(),
+                    $('#Q4').val(),
+                    $('#Q5').val(),
+                    $('#Q6').val(),
+                    $('#Q7').val(),
+                    $('#Q8').val(),
+                    $('#Q9').val(),
+                    $('#Q10').val()
+                ]
+            }
+            //   console.log("newFriend: "+newFriend);
+
             //jquery/AJAX for post 
-            $.post(window.location.href.replace('/survey', '/api/friends'), newFriend, function(data) {
+            $.post(window.location.href.replace('/survey', '/api/friends'), newFriend, function (data) {
 
                 // Grab the result from the AJAX post so that the best match's name and photo are displayed.
                 $("#matchName").text(data.name);
@@ -252,8 +254,8 @@
 
                 //display the modal with the best match 
                 $("#resultsModal").modal('toggle');
-      });
-    });
+            });
+        });
     </script>
 
 </body>
